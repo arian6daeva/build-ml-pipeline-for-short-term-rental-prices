@@ -1,4 +1,4 @@
-name: download_file
+name: basic_cleaning
 channels:
   - conda-forge
   - defaults
@@ -7,4 +7,3 @@ dependencies:
   - python=3.10.9
   - pip:
       - -r requirements.txt --install-option="--prefix=$PREFIX_PATH"
-      - git+https://github.com/udacity/nd0821-c2-build-model-workflow-starter.git#egg=wandb-utils&subdirectory=components

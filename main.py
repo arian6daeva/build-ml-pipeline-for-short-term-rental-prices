@@ -21,7 +21,7 @@ _steps = [
 
 
 # This automatically reads in the configuration
-@hydra.main(config_path=".", config_name="config")
+@hydra.main(version_base="1.2", config_path=".", config_name="config")
 def go(config: DictConfig):
 
     # Setup the wandb experiment. All runs will be grouped under this name
@@ -91,9 +91,7 @@ def go(config: DictConfig):
             ##################
             # Implement here #
             ##################
-            _ = mlflow.run(
-                os.path.join(root_path,
-                             "components", "train_val_test_split"),
+            _ = mlflow.run(f"{config['main']['components_repository']}/train_val_test_split",
                 "main",
                 parameters={
                     "input": "clean_sample.csv:latest",
@@ -148,7 +146,6 @@ def go(config: DictConfig):
                     "test_dataset": "test_data.csv:latest"
                 },
             )
-
 
 if __name__ == "__main__":
     go()

@@ -23,11 +23,11 @@ entry_points:
 
       min_price:
         description: Minimum renting price considered for modeltraining
-        type: string
+        type: float
 
       max_price:
         description: Maximum renting price considered for modeltraining
-        type: string
+        type: float
 
 
     command: >-
